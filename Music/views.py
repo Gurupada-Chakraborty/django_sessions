@@ -1,4 +1,4 @@
-from .models import Album
+from .models import Album, Song
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 
@@ -17,6 +17,22 @@ def details(request, album_id):
     #raise Http404("Album does not exist!")
     album = get_object_or_404(Album, pk=album.id)
     return render(request, "Music/detail.html", {"album": album})
+
+
+def favourite(request, album_id):
+    album = get_object_or_404(Album, pk=album_id)
+    try:
+        selected_song=album.song_set.get(pk=request.POST['song'])
+    except (KeyError, Song.DoesNotExist):
+        render(request, "Music/details.html", {
+            "album": album,
+            "error_msg": "Sorry invalid input"
+        })
+    else:
+        selected_song.is_favourite = True
+        selected_song.save()
+    return render(request, "Music/detail.html", {"album": album})
+
 
 
 
