@@ -29,7 +29,10 @@ def favourite(request, album_id):
             "error_msg": "Sorry invalid input"
         })
     else:
-        selected_song.is_favourite = True
+        if not selected_song.is_favourite:
+            selected_song.is_favourite = True
+        else:
+            selected_song.is_favourite = False
         selected_song.save()
     return render(request, "Music/detail.html", {"album": album})
 
