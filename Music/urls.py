@@ -1,6 +1,9 @@
 from django.urls import re_path
 from . import views
 
+app_name = "Music"
+
+
 urlpatterns = [
     #/music/
     re_path(r'^$', views.index, name='index'),
