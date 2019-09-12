@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends 'Music/base.html' %}
+{% block title %}Details{% endblock %}
+{% block body %}
 
 <head>
 
-    <img src={{ album.album_logo }} width=220 breadth="220">
+    <img src={{ album.album_logo }} class="img-circle" width=220 breadth="220">
 </head>
 {% if error_msg %}
 <h2>error_msg</h2>
@@ -21,4 +24,5 @@
     {% endfor %}
     <input type="submit" value="Favourite">
 </form>
+{% endblock %}
 </html>

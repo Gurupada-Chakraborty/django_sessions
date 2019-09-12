@@ -1,60 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load staticfiles %}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href={% static 'Music/style.css' %}
-
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes:400,600" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <title>soundwave</title>
-</head>
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'Music:index' %}"><img src="https://owips.com/sites/default/files/clipart/headphones-clipart/323059/headphones-clipart-dispatcher-323059-7894660.png" alt="logo"> soundwave</a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarTop">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarTop">
-        <ul class="nav navbar-nav navbar-left">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">
-                    <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
-                Albums
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;
-                Songs
-                </a>
-            </li>
-        </ul>
-
-        <form action="#" class="navbar navbar-form navbar-left" role="search" method="get">
-            <div class="form-group mr-2 mt-3">
-                <input type="text" class="form-control" name="q" value="">
-            </div>
-            <button type="submit" class="btn btn-outline-danger btn-dark bg-dark">Search</button>
-        </form>
-        <div class="ml-auto">
-        <ul class="nav navbar-nav mr">
-            <li class="nav-item"><a class="nav-link" href="#">Add Album</a> </li>
-            <li class="nav-item"><a class="nav-link" href="#">Logout</a> </li>
-        </ul>
-        </div>
-        </div>
-    </div>
-</nav>
+{% extends 'Music/base.html' %}
+{% block body %}
 
 <header>
     {% if all_albums %}
     <meta charset="UTF-8">
-    <h1>List of collections :</h1>
+    <h1 class="display-4 ml-3">List of collections :</h1>
     <section>
     <ul>
         {% for album in all_albums %}
@@ -66,5 +18,6 @@
     <h1>Sorry no albums to display :(</h1>
     {% endif %}
 </header>
+{% endblock %}
 
 </html>
