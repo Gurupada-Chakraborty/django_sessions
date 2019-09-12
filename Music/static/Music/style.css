@@ -1,0 +1,14 @@
+body {
+    background : white url("images_css/texture-wallpaper-4.jpg");
+}
+.navbar{
+    border-radius : 0;
+}
+.navbar-brand{
+    font-family : "Great Vibes", cursive;
+    font-size: xx-large ;
+}
+.navbar-brand img{
+    breadth : 60px;
+    width: 60px;
+}
