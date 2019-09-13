@@ -6,13 +6,24 @@
 <header>
     {% if all_albums %}
     <meta charset="UTF-8">
-    <h1 class="display-4 ml-3">List of collections :</h1>
     <section>
-    <ul>
+    <div class="row mt-3">
         {% for album in all_albums %}
-        <li><a href="{% url 'Music:details' album.id %}">{{ album.artist }} - {{album.album_name }}</a></li>
+                <div class="col-md-3 col-sm-5">
+                    <div class="card p-1 bg-dark text-white">
+                        <div class="card-body text-center">
+                            <h5 class="card-title lead">{{ album.album_name }}</h5>
+                            <img class="img-fluid img-circle" src={{ album.album_logo }}  width=220 breadth="220">
+                            <div class="mx-2 my-2">
+                            <a href="{% url 'Music:details' album.id %}" class="btn btn-danger" role="button">View Details</a>
+                            <a href="#" class="btn btn-outline-danger" role="button"><i class="fa fa-trash"></i></a>
+                            <a href="#" class="btn btn-outline-danger" role="button"><i class="fa fa-heart"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
         {% endfor %}
-    </ul>
+    </div>
     </section>
     {% else %}
     <h1>Sorry no albums to display :(</h1>

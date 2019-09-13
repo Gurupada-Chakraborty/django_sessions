@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <title>{% block title %}SoundWave{% endblock %}</title>
     {% load staticfiles %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href={% static 'Music/style.css' %}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="{% url 'Music:index' %}"><img src="https://owips.com/sites/default/files/clipart/headphones-clipart/323059/headphones-clipart-dispatcher-323059-7894660.png" alt="logo"> SoundWave</a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarTop">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Top">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarTop">
+        <div class="collapse navbar-collapse" id="Top">
         <ul class="nav navbar-nav navbar-left">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">
-                    <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;
-                Albums
-                </a>
-            </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;
+                <a class="nav-link" href="#"><i class="fa fa-folder"></i> Albums</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">
+                <i class="fa fa-music"></i>
                 Songs
                 </a>
             </li>
@@ -39,11 +39,12 @@
             <button type="submit" class="btn btn-outline-danger btn-dark bg-dark">Search</button>
         </form>
         <div class="ml-auto">
-        <ul class="nav navbar-nav mr">
-            <li class="nav-item"><a class="nav-link" href="#">Add Album</a> </li>
-            <li class="nav-item"><a class="nav-link" href="#">Logout</a> </li>
+        <ul class="nav navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-plus"></i> Add Album</a> </li>
+            <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a> </li>
         </ul>
         </div>
+
         </div>
     </div>
 </nav>
