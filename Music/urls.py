@@ -6,13 +6,10 @@ app_name = "Music"
 
 urlpatterns = [
     #/music/
-    re_path(r'^$', views.index, name='index'),
+    re_path(r'^$', views.IndexView.as_view(), name='index'),
 
     #/music/732
-    re_path(r'^(?P<album_id>[0-9]+)/$', views.details, name="details"),
-
-    #/music/<album_id>/favourite
-    re_path(r'^(?P<album_id>[0-9]+)/favourite/$', views.favourite, name="favourite")
+    re_path(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='details'),
 
     ]
 

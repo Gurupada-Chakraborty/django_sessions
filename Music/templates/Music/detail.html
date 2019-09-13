@@ -8,21 +8,16 @@
 
     <img src={{ album.album_logo }} class="img-circle" width=220 breadth="220">
 </head>
-{% if error_msg %}
-<h2>error_msg</h2>
-{% endif %}
-<form action = "{% url 'Music:favourite' album.id %}" method="post">
-{% csrf_token %}
-    {% for song in album.song_set.all %}
-        <input type="radio" id="song{{ forloop.counter }}" name='song' value="{{ song.id }}">
-        <label for="song{{ forloop.counter }}">
-        {{ song.song_name }}
-        {% if song.is_favourite %}
-            <img src="https://www.pinclipart.com/picdir/big/33-337440_stars-star-transparent-background-star-clipart-png.png" width="16" breadth="16">
-        {% endif %}
-        </label><br>
-    {% endfor %}
-    <input type="submit" value="Favourite">
-</form>
+<body>
+<h2 class="display-4">{{ album.artist }}-{{ album.album_name }}</h2>
+<ul>
+{% for song in album.song_set.all %}
+    <li>
+       <a href="#">{{ song.song_name }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+</body>
 {% endblock %}
 </html>

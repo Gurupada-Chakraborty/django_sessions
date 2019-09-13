@@ -10,7 +10,7 @@
     <section>
     <ul>
         {% for album in all_albums %}
-        <li><a href="{% url 'Music:details' album.id %}">{{ album.album_name }}</a></li>
+        <li><a href="{% url 'Music:details' album.id %}">{{ album.artist }} - {{album.album_name }}</a></li>
         {% endfor %}
     </ul>
     </section>
