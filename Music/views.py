@@ -1,5 +1,6 @@
 from .models import Album, Song
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
 class IndexView(generic.ListView):
@@ -13,6 +14,11 @@ class DetailView(generic.DetailView):
     model = Album
     template_name = 'Music/detail.html'
 
+class AlbumCreate(CreateView):
+    model = Album
+    #fields = ['artist', 'album_name', 'genre', 'album_logo']
+    fields = '__all__'
+    template_name = 'Music/album_form.html'
 
 
 

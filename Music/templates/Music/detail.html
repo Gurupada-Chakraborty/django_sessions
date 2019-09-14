@@ -6,12 +6,12 @@
 
 <body>
 <div class="row">
-    <div class="col-md-3 col-sm-6">
-        <div class="card m-2 bg-dark text-danger">
+    <div class="col-md-3 col-sm-6 ml-2 mt-2">
+        <div class="card m-2 bg-dark text-white">
             <div class="card-body text-center">
-                <h6 class="lead card-title">{{ album.artist }}<br>{{ album.album_name }}</h6>
+                <h6 class="lead text-card-header text-danger">{{ album.artist }}<br>{{ album.album_name }}</h6>
                 <img class="img-responsive img-circle" src="{{ album.album_logo }}" width="120" breadth="120">
-                <p class="lead text-danger">Genre : {{ album.genre }}</p>
+                <h6 class="lead text-card-footer">Genre : {{ album.genre }}</h6>
             </div>
         </div>
     </div>

@@ -11,6 +11,8 @@ urlpatterns = [
     #/music/732
     re_path(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='details'),
 
+    re_path(r'^album/add/$', views.AlbumCreate.as_view(), name='add-album'),
+
     ]
 
 
