@@ -4,23 +4,30 @@
 {% block title %}Details{% endblock %}
 {% block body %}
 
-<head>
-
-
-</head>
-    <div class="p-3">
-    <img class="img-fluid img-circle" src={{ album.album_logo }}  width=220 breadth="220">
-    </div>
 <body>
-<h2 class="display-4">{{ album.artist }}-{{ album.album_name }}</h2>
-<ul>
-{% for song in album.song_set.all %}
-    <li>
-       <a href="#">{{ song.song_name }}</a>
-    </li>
-{% endfor %}
-</ul>
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <div class="card m-2 bg-dark text-danger">
+            <div class="card-body text-center">
+                <h6 class="lead card-title">{{ album.artist }}<br>{{ album.album_name }}</h6>
+                <img class="img-responsive img-circle" src="{{ album.album_logo }}" width="120" breadth="120">
+                <p class="lead text-danger">Genre : {{ album.genre }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 col-sm-6 mt-2">
+        <div class="card m-2 bg-dark text-white">
+            <div class="card-body text-left">
+            <dl>
+                <dt><strong>JUKEBOX :</strong></dt><br>
+                {% for song in album.song_set.all %}
+                    <dd><a href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-play-circle"></i> {{ song.song_name }}</a></dd>
+                {% endfor %}
+            </dl>
 
-</body>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 </html>
