@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'Music/base.html' %}
+{% block body %}
+
+<header>
+    {% if object_list %}
+    <meta charset="UTF-8">
+    <section>
+    <div class="row mt-3 mx-2">
+        {% for album in object_list %}
+                <div class="col-md-2 col-sm-3 mb-2">
+                    <div class="card bg-dark text-white">
+                        <div class="card-body text-center">
+                            <h5 class="card-title lead">{{ album.artist }}<br>
+                                {{ album.album_name }}</h5>
+                            <img class="img-fluid img-circle" src={{ album.album_logo }}  width="150" breadth="150">
+                            <div class="mx-2 my-2">
+                            <a href="{% url 'Music:update-album' album.id %}" class="btn btn-success btn-outline-white btn-sm" role="button">Edit Details</a>
+                            <a href="#" class="btn btn-outline-danger btn-sm" role="button"><i class="fa fa-trash"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+    </section>
+    {% else %}
+    <h1>Sorry no albums to display :(</h1>
+    {% endif %}
+</header>
+{% endblock %}
+
+</html>

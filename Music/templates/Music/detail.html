@@ -19,7 +19,11 @@
         <div class="card m-2 bg-dark text-white">
             <div class="card-body text-left">
             <dl>
-                <dt><strong>JUKEBOX :</strong></dt><br>
+                <dt>JUKEBOX :
+                <div class="pt-2 ml-auto">
+                <a class="btn btn-outline-success bg-dark" href="{% url 'Music:add-song' album.id %}"> Add Song</a>
+                    <h3>&nbsp;</h3>
+                </div></dt>
                 {% for song in album.song_set.all %}
                     <dd><a href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-play-circle"></i> {{ song.song_name }}</a></dd>
                 {% endfor %}

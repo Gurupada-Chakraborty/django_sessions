@@ -17,7 +17,7 @@
                             <img class="img-fluid img-circle" src={{ album.album_logo }}  width=220 breadth="220">
                             <div class="mx-2 my-2">
                             <a href="{% url 'Music:details' album.id %}" class="btn btn-danger" role="button">View Details</a>
-                            <a href="#" class="btn btn-outline-danger" role="button"><i class="fa fa-trash"></i></a>
+                            <a href="{% url 'Music:delete-album' album.id %}" class="btn btn-outline-danger" role="button"><i class="fa fa-trash"></i></a>
                             <a href="#" class="btn btn-outline-danger" role="button"><i class="fa fa-heart"></i></a>
                                 </div>
                         </div>

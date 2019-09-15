@@ -12,14 +12,16 @@ class Album(models.Model):
         return self.artist + " - " + self.album_name
 
     def get_absolute_url(self):
-        return reverse("Music:details", kwargs={'pk': self.pk})
+        return reverse('Music:details', kwargs={'pk': self.pk})
 
 
 class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     file_extension = models.CharField(max_length=20)
     song_name = models.CharField(max_length=100)
-    is_favourite = models.BooleanField(default=False)
 
     def __str__(self):
         return self.song_name
+
+    def get_absolute_url(self):
+        return reverse('Music:details', kwargs={'pk': self.album.pk})
