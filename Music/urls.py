@@ -9,7 +9,7 @@ urlpatterns = [
     re_path(r'^$', views.IndexView.as_view(), name='index'),
 
     #/music/732
-    re_path(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='details'),
+    re_path(r'^album/details/(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='details'),
 
     re_path(r'^album/add/$', views.AlbumCreate.as_view(), name='add-album'),
 
@@ -19,7 +19,9 @@ urlpatterns = [
 
     re_path(r'^album/delete/(?P<pk>[0-9]+)/$', views.AlbumDelete.as_view(), name='delete-album'),
 
-    re_path(r'^song/add/(?P<pk>[0-9]+)/$', views.SongCreate.as_view(), name='add-song'),
+    re_path(r'^album/song/add/(?P<pk>[0-9]+)/$', views.SongCreate.as_view(), name='add-song'),
+
+    re_path(r'^album/fav/(?P<album_id>[0-9]+)/$', views.favourite_album, name='fav-album'),
 
     ]
 

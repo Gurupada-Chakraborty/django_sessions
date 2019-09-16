@@ -2,7 +2,7 @@ from .models import Album, Song
 from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-
+from django.shortcuts import get_object_or_404, render
 
 class IndexView(generic.ListView):
     template_name = 'Music/index.html'
@@ -41,7 +41,21 @@ class SongCreate(CreateView):
     fields = '__all__'
 
 
+def favourite_album(request, album_id):
+    all_albums = Album.objects.all()
+    try:
+        album = Album.objects.get(pk=request.POST['album_id'])
+    except (KeyError, Album.DoesNotExist):
+        return render(request, 'Music/index.html', {'error_msg' : 'invalid', 'all_albums': all_albums })
+    else:
+        context = {'album': album, 'all_albums': all_albums}
+        if not album.is_favourite:
+            album.is_favourite = True
+        else:
+            album.is_favourite = False
+        album.save()
 
+        return render(request, 'Music/index.html', context)
 
 
 
