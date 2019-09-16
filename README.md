@@ -1,3 +1,3 @@
 # django_sessions
 Project - SoundWave
-![Home_page](images/Linkin_park_hybrig_theory.jpg)
+![Home_page](http://127.0.0.1:8000/music/)
