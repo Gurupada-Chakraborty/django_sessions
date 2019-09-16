@@ -25,7 +25,15 @@
                     <h3>&nbsp;</h3>
                 </div></dt>
                 {% for song in album.song_set.all %}
-                    <dd><a href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-play-circle"></i> {{ song.song_name }}</a></dd>
+                    <dd>
+                        <form action="{% url 'Music:del-song' song.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="song_id" value="{{ song.id }}"/>
+                            <button type="submit" class="btn btn-outline-light btn-sm"><i class="fa fa-trash-o"></i></button>
+                            <a href="#" class="btn btn-outline-danger btn-sm"><i class="fa fa-play-circle"></i> {{ song.song_name }}</a>
+                        </form>
+
+                    </dd>
                 {% endfor %}
             </dl>
 
@@ -35,3 +43,4 @@
 </div>
 {% endblock %}
 </html>
+

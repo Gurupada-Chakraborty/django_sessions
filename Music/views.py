@@ -46,7 +46,7 @@ def favourite_album(request, album_id):
     try:
         album = Album.objects.get(pk=request.POST['album_id'])
     except (KeyError, Album.DoesNotExist):
-        return render(request, 'Music/index.html', {'error_msg' : 'invalid', 'all_albums': all_albums })
+        return render(request, 'Music/index.html', {KeyError: 'invalid', 'all_albums': all_albums })
     else:
         context = {'album': album, 'all_albums': all_albums}
         if not album.is_favourite:
@@ -56,6 +56,12 @@ def favourite_album(request, album_id):
         album.save()
 
         return render(request, 'Music/index.html', context)
+
+
+class SongDelete(DeleteView):
+    model = Song
+    fields = '__all__'
+    success_url = reverse_lazy('Music:index')
 
 
 

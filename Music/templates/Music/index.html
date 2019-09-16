@@ -17,9 +17,8 @@
                             <img class="img-fluid img-circle" src={{ album.album_logo }}  width=220 breadth="220">
                             <div class="row mx-2 my-2 mr-auto">
                             <a href="{% url 'Music:details' album.id %}" class="ml-3 btn btn-danger" role="button">View Details</a>
-                            <form action="{% url 'Music:delete-album' album.id %}" method="post">
+                            <form action="{% url 'Music:delete-album' album.id %}" method="post" name="album_id" value="{{ album.id }}">
                                 {% csrf_token %}
-                                <input type="hidden" name="album_id" value="{{ album.id }}">
                                 <button type="submit" class="ml-1 btn btn-outline-danger" role="button"><i class="fa fa-trash"></i></button>
                             </form>
                             <form action="{% url 'Music:fav-album' album.id %}" method="post">

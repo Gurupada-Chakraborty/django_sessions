@@ -23,6 +23,8 @@ urlpatterns = [
 
     re_path(r'^album/fav/(?P<album_id>[0-9]+)/$', views.favourite_album, name='fav-album'),
 
+    re_path(r'^album/song/delete/(?P<pk>[0-9]+)/$', views.SongDelete.as_view(), name='del-song'),
+
     ]
 
 
