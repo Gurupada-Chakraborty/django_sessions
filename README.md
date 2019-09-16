@@ -1,2 +1,2 @@
 # django_sessions
-Project - website
+Project - SoundWave
