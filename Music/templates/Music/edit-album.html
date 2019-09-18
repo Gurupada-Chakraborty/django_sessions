@@ -14,7 +14,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title lead">{{ album.artist }}<br>
                                 {{ album.album_name }}</h5>
-                            <img class="img-fluid img-circle" src={{ album.album_logo }}  width="150" breadth="150">
+                            <img class="img-fluid img-circle" src={{ album.album_logo.url }}  width="150" breadth="150">
                             <div class="mx-2 my-2">
                             <a href="{% url 'Music:update-album' album.id %}" class="btn btn-success btn-outline-white btn-sm" role="button">Edit Details</a>
                             <a href="#" class="btn btn-outline-danger btn-sm" role="button"><i class="fa fa-trash"></i></a>

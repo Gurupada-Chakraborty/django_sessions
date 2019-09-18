@@ -14,7 +14,7 @@
                         <div class="card-body text-center">
                             <h5 class="card-title lead">{{ album.artist }}<br>
                                 {{ album.album_name }}</h5>
-                            <img class="img-fluid img-circle" src={{ album.album_logo }}  width=220 breadth="220">
+                            <img class="img-fluid img-circle" src={{ album.album_logo.url }}  width=220 breadth="220">
                             <div class="row mx-2 my-2 mr-auto">
                             <a href="{% url 'Music:details' album.id %}" class="ml-3 btn btn-danger" role="button">View Details</a>
                             <form action="{% url 'Music:delete-album' album.id %}" method="post" name="album_id" value="{{ album.id }}">
@@ -39,7 +39,11 @@
     </div>
     </section>
     {% else %}
-    <h1>Sorry no albums to display :(</h1>
+    <div class="container-fluid">
+    <div class="col-md-8 col-sm-3">
+        <h1 class="display-4 lead">Sorry no albums to display :(</h1>
+    </div>
+    </div>
     {% endif %}
 </header>
 {% endblock %}
