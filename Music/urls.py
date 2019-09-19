@@ -25,6 +25,8 @@ urlpatterns = [
 
     re_path(r'^album/song/delete/(?P<pk>[0-9]+)/$', views.SongDelete.as_view(), name='del-song'),
 
+    re_path(r'^register/$', views.UserFormView.as_view(), name='register-user'),
+
     ]
 
 
