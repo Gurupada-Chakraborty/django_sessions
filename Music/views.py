@@ -26,7 +26,6 @@ class AlbumCreate(CreateView):
 class AlbumUpdate(UpdateView):
     model = Album
     fields = '__all__'
-    #success_url = reverse_lazy("Music:index")
 
 class AlbumDelete(DeleteView):
     model = Album

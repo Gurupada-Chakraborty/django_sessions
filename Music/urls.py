@@ -1,6 +1,5 @@
 from django.urls import re_path
 from . import views
-from django.views.generic.base import TemplateView
 
 app_name = "Music"
 
@@ -27,10 +26,6 @@ urlpatterns = [
     re_path(r'^album/song/delete/(?P<pk>[0-9]+)/$', views.SongDelete.as_view(), name='del-song'),
 
     re_path(r'^register/$', views.UserFormView.as_view(), name='register-user'),
-
-    #re_path(r'^acc/login/$', name='login'),
-
-   # re_path(r'^acc/logout/$', TemplateView.as_view(template_name='index.html'), name='logout'),
 
     ]
 

@@ -24,10 +24,6 @@ urlpatterns = [
     path(r'music/', include('Music.urls')),
     path(r'acc/', include('django.contrib.auth.urls')),
     path(r'music/', TemplateView.as_view(template_name='Music/index.html'), name='home'),
-
-    #path(r'music/', include('django.contrib.auth.urls')),
-   # path(r'music/', TemplateView.as_view(template_name='index.html'), name='index'),
-
 ]
 
 if settings.DEBUG:
