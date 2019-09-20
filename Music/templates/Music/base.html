@@ -40,7 +40,20 @@
         </form>
         <div class="ml-auto">
         <ul class="nav navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="{% url 'Music:register-user' %}"><i class="fa fa-power-off"></i> Register</a> </li>
+
+        </ul>
+        </div>
+         <div class="ml-auto">
+        <ul class="nav navbar-nav">
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user"></i> Hi {{ user.username }}!  |</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout</a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Sign in  |</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'Music:register-user' %}"><i class="fa fas fa-user-plus"></i> Sign Up</a></li>
+            {% endif %}
+
+
         </ul>
         </div>
 

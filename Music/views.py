@@ -69,7 +69,7 @@ class SongDelete(DeleteView):
 
 class UserFormView(View):
     form_class = UserForm
-    template_name = 'Music/registration.html'
+    template_name = 'Music/Sign_up.html'
 
     #gets the registration form
     def get(self, request):
@@ -100,25 +100,4 @@ class UserFormView(View):
 
         else:
             return render(request, self.template_name, {'form': form})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
